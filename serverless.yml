@@ -1,0 +1,21 @@
+service: dad-joke-bot
+
+provider:
+  name: aws
+  runtime: python3.6
+  memorySize: 128
+  region: us-west-2
+
+functions:
+  post_joke:
+    handler: handler.post_joke
+    events:
+      - schedule: cron(0 15 * * * *)
+    
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: false
+    

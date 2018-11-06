@@ -10,7 +10,7 @@ functions:
   post_joke:
     handler: handler.post_joke
     events:
-      - schedule: cron(0 15 * * * *)
+      - schedule: cron(0 15 * * ? *)
     
 plugins:
   - serverless-python-requirements
